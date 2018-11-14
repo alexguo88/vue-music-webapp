@@ -33,13 +33,14 @@ import Loading from 'base/loading/loading'
 import {playlistMixin} from 'common/js/mixin'
 import {mapMutations} from 'vuex'
 
-const YUNMUSIC_TOP = [0, 1, 2, 3, 4, 22, 23]
+// 需要的排行榜列表
+const YUNMUSIC_TOP = [0, 1, 2, 3, 4, 5, 6, 7, 22, 23]
 
 export default {
   mixins: [playlistMixin],
   data () {
     return {
-      yunTopList: [],
+      yunTopList: [], // 存放所有排行榜数据
       showLoading: true
     }
   },
@@ -47,6 +48,7 @@ export default {
     this._getTopList()
   },
   methods: {
+    // 选中榜单
     selectItem (item) {
       this.$router.push({
         path: `/rank/${item.id}`
@@ -58,8 +60,13 @@ export default {
       this.$refs.rank.style.bottom = bottom
       this.$refs.scroll.refresh()
     },
+    /**
+     * 获取排行榜列表
+     * @private
+     */
     _getTopList () {
       for (let i = 0; i < YUNMUSIC_TOP.length; i++) {
+        // 取得排行榜数据
         getTop(YUNMUSIC_TOP[i]).then((res) => {
           let list = res.data.playlist
           list.top = res.data.playlist.tracks.slice(0, 3)

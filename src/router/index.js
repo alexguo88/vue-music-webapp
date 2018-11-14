@@ -62,8 +62,7 @@ const User = (resolve) => {
 export default new Router({
   routes: [
     {
-      // 默认跳转到 recommend
-      path: '/',
+      path: '/', // 默认跳转到 recommend
       redirect: '/recommend'
     },
     {

@@ -60,9 +60,9 @@ export default {
   mixins: [playlistMixin],
   data () {
     return {
-      banner: [],
-      playList: [],
-      recommendMusic: []
+      banner: [], // 轮播图
+      playList: [], // 推荐歌单
+      recommendMusic: [] // 推荐歌曲
     }
   },
   created () {
@@ -97,7 +97,7 @@ export default {
         })
       }
     },
-    selectSong (item) {
+    selectSong (item) { // 选中歌曲
       this.insertSong(item)
     },
     handlePlaylist (playlist) {
@@ -105,7 +105,7 @@ export default {
       this.$refs.recommend.style.bottom = bottom
       this.$refs.scroll.refresh()
     },
-    selectList (item) {
+    selectList (item) { // 选中歌单
       this.$router.push({
         path: `/recommend/${item.id}`
       })

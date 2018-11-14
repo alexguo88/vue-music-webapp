@@ -1,3 +1,7 @@
+/**
+ * 歌手实体
+ *
+ */
 export default class Singer {
   constructor ({id, name, avatar, aliaName}) {
     this.id = id

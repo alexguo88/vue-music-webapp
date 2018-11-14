@@ -1,4 +1,6 @@
-
+/**
+ * 歌曲实体
+ */
 export default class Song {
   constructor ({id, mid, singer, name, album, duration, image, url, aliaName}) {
     this.id = id
